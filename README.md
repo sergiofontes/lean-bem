@@ -4,7 +4,7 @@
 
 **Lean BEM** is a cleaner and aesthetically improved modification of the [BEM](https://en.bem.info) method *for CSS*.
 
-It ditches repetition of class (thus bloated HTML), and all of the double-underscores. Instead, it uses a single `_` for breaking blocks from elements; and modifiers as standalone classes, prepended with `-`. On top of that, it brings back a little bit of cascade.
+It ditches repetition of classes (thus bloated HTML), and all of the double-underscores. Instead, it uses a single `_` for breaking blocks from elements; and modifiers as standalone classes, prepended with `-`. On top of that, it brings back a little bit of cascade.
 
 So, in place of this:
 ```html
@@ -94,7 +94,7 @@ This allows you to change a block's DOM structure without making changes in the 
 <form class="search -dark">
   <!-- `container` element in the `search` block has the `reverse` modifier -->
   <div class="search_container -reverse">
-    <!-- `input` element in the `search` block -->
+    <!-- `input` element in the `search` block has the `focused` modifier -->
     <input class="search_input -focused">
     <!-- `button` element in the `search` block -->
     <button class="search_button">Search</button>
@@ -115,13 +115,13 @@ The CSS of the example above would be:
 
 # CSS concepts
 ## General recommendations
-- Avoid too much use of compound words. Instead of `super-long-block-name`, use `block-name`.
-- Excepting the *base styles,* prefer classes to target an HTML element.
-- A special group of styles must cascade through all blocks. They're known as *base styles*.
 - Follow @mdo's [Code Guide](http://codeguide.co/#css-syntax) to make code formatting consistent.
-- Composition of classes instead of inheritance. This keeps the code uncoupled and flexible.
-## Blocks inside blocks
+- Prefer classes to target an HTML element, excepting the *base styles*.
+- Global mixins and settings from *base styles* must cascade through all blocks.
+- Avoid too much use of compound words. Instead of `super-long-block-name`, use `block-name`.
+- Prefer composition of classes instead of inheritance. This keeps the code uncoupled and flexible.
 
+## Blocks inside blocks
 It's totally fine (and expected) to have nested blocks. Since they're functionally independent, they could be freely moved around to compose UI patterns. To accomplish this, styles that are responsible for the external geometry and positioning are set via the parent block.
 
 *Example:*
@@ -234,9 +234,4 @@ If you prefer to use SCSS (or Less) with mixins and its variables, use this stru
     └── pages/
         ├── page_name.scss
         └── …
-```
-
-On top of each base file, we import the main mixin file. E.g.:
-```css
-@import "mixins";
 ```
