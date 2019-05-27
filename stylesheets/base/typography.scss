@@ -1,0 +1,46 @@
+///////////////////////////////////////////////////////////
+// Typography                               (Base block) //
+///////////////////////////////////////////////////////////
+
+// Font system ////////////////////////////////////////////
+
+html, body {}
+
+// Title
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+
+// Paragraph
+p {}
+em {}
+label {}
+strong {}
+blockquote {}
+::selection {}
+
+// Link
+a {
+  &:visited {}
+  &:focus {}
+  &:hover {}
+}
+
+// Code
+code {}
+pre {}
+kbd {}
+
+// Small texts
+small {}
+legend {}
+figcaption {}
+
+// List
+ul {}
+ol {}
+li {}
+dl {}
+dl {}

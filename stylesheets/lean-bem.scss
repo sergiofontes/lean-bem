@@ -1,0 +1,25 @@
+///////////////////////////////////////////////////////////
+// Lean BEM                                              //
+///////////////////////////////////////////////////////////
+
+@charset "utf-8";
+
+// Vendors ////////////////////////////////////////////////
+
+// @import "vendors/…";
+
+// Base blocks ////////////////////////////////////////////
+
+@import "base/mixins";         // Base mixins
+@import "base/typography";     // Typography system
+@import "base/grid_n_spacing"; // Grid settings & spacing patterns
+@import "base/motion";         // Motion & transition patterns
+@import "base/global";         // Global HTML & classes
+
+// Blocks /////////////////////////////////////////////////
+
+@import "blocks/block-name";
+
+// Pages //////////////////////////////////////////////////
+
+@import "pages/page-name";

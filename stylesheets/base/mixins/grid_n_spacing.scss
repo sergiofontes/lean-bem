@@ -1,0 +1,23 @@
+///////////////////////////////////////////////////////////
+// Grid settings & spacing patterns         (Base mixin) //
+///////////////////////////////////////////////////////////
+
+@import "utilities";                           // Utilities
+
+// Modular scale //////////////////////////////////////////
+
+// Scale settings (www.modularscale.com)
+$modularscale: (
+  base:        1rem,
+  ratio:       1.4
+);
+
+// Grid scaffold //////////////////////////////////////////
+
+// Breakpoints
+$breakpoints: (
+  "phone":     20rem,
+  "tablet":    51rem,
+  "notebook":  68rem,
+  "desktop":   80rem
+);

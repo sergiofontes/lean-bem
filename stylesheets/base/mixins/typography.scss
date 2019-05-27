@@ -1,0 +1,24 @@
+///////////////////////////////////////////////////////////
+// Typography                               (Base mixin) //
+///////////////////////////////////////////////////////////
+
+@import "utilities";                           // Utilities
+
+// Font scaffold //////////////////////////////////////////
+
+// Base size (1rem)
+$base:         16px;
+
+// Fontfaces
+$header:       sans-serif;
+$text:         serif;
+
+// Weights
+$light:        300;
+$normal:       normal;
+$regular:      $normal;
+$medium:       500;
+$semibold:     600;
+$bold:         bold;
+$extrabold:    800;
+$super:        900;

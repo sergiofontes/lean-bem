@@ -1,0 +1,49 @@
+///////////////////////////////////////////////////////////
+// Mixins & functions utilities             (Base mixin) //
+///////////////////////////////////////////////////////////
+
+// Px to rem.
+@function rem($size) {
+  $rem: $size / 15px;
+  @return #{$rem}rem;
+}
+
+// Clear fix wizardry.
+@mixin clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+// Ease dimensioning.
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Text overflow.
+@mixin text-overflow($max-width: 100%) {
+  max-width: $max-width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Hide typography, to be seen with screen readers only.
+@mixin fontless {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+// Show hidden typography.
+@mixin fontful {
+  position: static;
+  clip: none;
+  white-space: normal;
+}
