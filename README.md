@@ -28,8 +28,9 @@ Even though the idea of BEM is to make every block independent from each other, 
 ## Block
 
 An **independent page component** that can be reused.
-- The block name *describes its purpose* (“What is it?” — `menu` or `button`), not its state (“What does it look like?” — `red` or `big`).
-- The block shouldn't influence its environment, meaning you *shouldn't set the external geometry* (e.g., `margin` 🚫) or *positioning* for the block.
+- The block name **describes its purpose** (“What is it?” — `menu` or `button`), not its state (“What does it look like?” — `red` or `big`).
+- Composed-words separated by a single hyphen `-`. E.g., `block-name`.
+- The block shouldn't influence its environment, meaning you **shouldn't set the external geometry**. E.g., `margin` 🚫) or *positioning* for the block.
 
 **Nesting**
 - Blocks can be nested in each other.
@@ -47,13 +48,14 @@ An **independent page component** that can be reused.
 
 ## Element
 - A composite **part of a block** that **can't be used separately from it**.
-- The element name *describes its purpose* (“What is this?” — `item`, `text`, etc.), not its state (“What type, or what does it look like?” — `red`, `big`, etc.).
-- The structure of an element's full name is `block-name_element-name`. The element name is separated from the block name with a *single* underscore (`_`).
+- The element name **describes its purpose** (“What is this?” — `item`, `text`, etc.), not its state (“What type, or what does it look like?” — `red`, `big`, etc.).
+- - Composed-words separated by a single hyphen `-`. E.g., `element-name`.
+- The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
 
 **Nesting**
 - Elements can be nested inside each other.
 - You can have any number of nesting levels.
-- An element is always part of a block, not another element. This means that element names *can't* define a hierarchy such as `block_element_element-alt` 🚫.
+- An element is always part of a block, not another element. This means that element names *can't* define a hierarchy, such as `block_element-one_element-two` 🚫.
 
 *Example:*
 
@@ -86,7 +88,8 @@ This allows you to change a block's DOM structure without making changes in the 
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on — `big` or `dark`), its state (“How is it different from the others?” — `disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?” — such as `switch-theme`).
 - A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
 - Each modifier is a combined class (used alongside the block or element class).
-- The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element.
+- The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element. E.g., `-modifier`.
+- Composed-words separated by a single hyphen `-`. E.g., `-modifier-name`.
 
 *Example:*
 ```html
@@ -138,7 +141,7 @@ It's totally fine (and expected) to have nested blocks. Since they're functional
 </body>
 ```
 
-Based on the HTML above, we’d have:
+Based on the HTML above, we’d set positioning styles for nested blocks *on the parent*:
 ```css
 .page_container .header { float: left; }
 .page_container .footer { float: right; }
@@ -174,9 +177,9 @@ Not:
 
 ## Base blocks
 
-The *base styles* are small foundational **UI building pieces** that are used throughout all blocks — whether by inheriting or importing. In these base blocks, you may target HTML tags to set default styles and/or reset browser preferences. For example, in `typography`, you may first style all text tags, like `h1`, `p`, `a`, `ul`, etc; after that, you may use classes to target this block's elements.
+The *base styles* are small foundational **UI building pieces** that are used throughout all blocks — whether by inheriting or importing. In these base blocks, you may target HTML tags to set default styles and/or reset browser preferences. For example, in `typography`, you may first style all text tags, like `h1`, `p`, `a`, `ul`, etc; after that, you may use classes to target the block's elements.
 
-The base blocks listed below are just a suggestion. Remove or add more if needed.
+Base blocks examples are listed. Remove or add more if needed.
 
 | *Base blocks*    | *Description*                                                       |
 | ---------------- | ------------------------------------------------------------------- |
@@ -194,9 +197,10 @@ They encompass specific styles for pages and themes. It also can be useful to ti
 
 
 # File structure
+Below are two examples of the **Lean BEM** file structure. They're formed by three layers of folders, ordered by importance. Also, inside this repository, you'll find a template for SCSS.
 
 ### Default
-A default **Lean BEM** file structure would look like this.
+A default file structure. Set global CSS variables (“CSS Custom Properties”) in the base blocks and re-use them throughout the other blocks (e.g., `colors` palette, `motion` transitions, and so on.)
 ```
     css/
     ├── base/
@@ -214,10 +218,11 @@ A default **Lean BEM** file structure would look like this.
 ```
 
 ### SCSS/Less
-If you prefer to use SCSS (or Less) with mixins and its variables, use this structure
+A SCSS (or Less) file structure. Set variables, mixins and functions in the `mixins/` folder, and re-use them throughout the other blocks.
 ```
     scss/
     ├── base/
+    │   ├── mixins.scss
     │   ├── typography.scss
     │   ├── grid_n_spacing.scss
     │   ├── motion.scss
