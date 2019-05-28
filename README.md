@@ -197,7 +197,7 @@ They encompass specific styles for pages and themes. It also can be useful to ti
 
 
 # File structure
-Below are two examples of the **Lean BEM** file structure. They're formed by three layers of folders, ordered by importance. Also, inside this repository, you'll find a template for SCSS.
+Below are two examples of a **Lean BEM** file structure. They're formed by three layers of folders, ordered by importance: `base`, `blocks` and `pages`. Also, inside this repository, you'll find a template for SCSS.
 
 ### Default
 A default file structure. Set global CSS variables (“CSS Custom Properties”) in the base blocks and re-use them throughout the other blocks (e.g., `colors` palette, `motion` transitions, and so on.)
