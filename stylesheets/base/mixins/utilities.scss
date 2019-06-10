@@ -39,6 +39,7 @@
   border: 0;
   margin: 0;
   padding: 0;
+  line-height: 0;
 }
 
 // Show hidden typography.
@@ -46,4 +47,13 @@
   position: static;
   clip: none;
   white-space: normal;
+}
+
+// Remove default button appearance.
+@mixin buttonless {
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
 }

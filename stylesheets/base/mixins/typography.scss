@@ -2,23 +2,38 @@
 // Typography                               (Base mixin) //
 ///////////////////////////////////////////////////////////
 
-@import "utilities";                           // Utilities
-
 // Font scaffold //////////////////////////////////////////
 
 // Base size (1rem)
 $base:         16px;
+$baseline:     1.5;
 
 // Fontfaces
-$header:       sans-serif;
-$text:         serif;
+$font:         "Aperçu", "Roboto", sans-serif;
 
 // Weights
+$thin:         100;
+$extralight:   200;
 $light:        300;
-$normal:       normal;
+$normal:       400;
 $regular:      $normal;
 $medium:       500;
-$semibold:     600;
-$bold:         bold;
-$extrabold:    800;
+$bold:         700;
 $super:        900;
+
+// Modular scale settings
+// www.modularscale.com/?16&px&1.125
+$modularscale: (
+  base:        1rem,
+  ratio:       1.125,
+);
+
+// Expands vendor's `ms` function
+@function modularscale($size, $t: null) {
+  @if $t == null {
+    @return ms($size);
+  } @else {
+    @return ms($size, $thread: $t);
+  }
+}
+

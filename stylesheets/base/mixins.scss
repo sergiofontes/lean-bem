@@ -4,6 +4,7 @@
 
 // Base mixins ////////////////////////////////////////////
 
+@import "mixins/utilities";      // Utilities
 @import "mixins/colors";         // Color palette
 @import "mixins/typography";     // Typography system
 @import "mixins/grid_n_spacing"; // Grid settings & spacing patterns
