@@ -235,7 +235,7 @@ A SCSS (or Less) file structure. Set variables, mixins and functions in the `mix
     │   └── mixins/
     │       ├── colors.scss
     │       ├── typography.scss
-    │       ├── grid_n_spacing.scss
+    │       ├── grid.scss
     │       ├── motion.scss
     │       └── utilities.scss
     ├── blocks/
