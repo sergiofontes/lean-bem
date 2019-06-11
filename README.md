@@ -1,10 +1,10 @@
 <img src="/images/logo.svg" width="380" height="auto" alt="Lean BEM, by Guava" />
 
-*** 
+***
 
-**Lean BEM** is a cleaner and aesthetically improved modification of the [Yandex](https://tech.yandex.com/bem/)-invented [BEM](https://en.bem.info/methodology) methodology *for CSS*.
+[BEM](https://en.bem.info/methodology/) (Block, Element, Modifier) is a component-based approach to web development. The idea is to divide the user interface into independent blocks, which are formed by elements and may have some modifiers. This modular approach makes for faster development and easier maintenance.
 
-It proposes a less bloated way for writing CSS classes, without losing the modularity. Also, it brings the concept of cascade back by introducing *base blocks* that forms the scaffold of every other *blocks* of the design system.
+**Lean BEM** is a cleaner and aesthetically improved modification of the former methodology *for CSS*. It proposes a less bloated way for writing CSS classes, without losing the modularity. Also, it brings back the concept of cascade by introducing [base blocks](#base-blocks) that forms the scaffold of every other *blocks* of the design system.
 
 So, in place of this:
 ```html
@@ -18,15 +18,12 @@ We'd have this:
 <button class="button button_primary -disabled -big">…</button>
 ```
 
-### What's BEM?
-[BEM](https://en.bem.info) (Block, Element, Modifier) is a component-based approach to web development. The idea behind it is to divide the user interface into independent blocks. This makes interface development easy and fast even with a complex UI.
-
 # Key concepts
-## Block
+## 🗂 Block
 An **independent page component** that can be reused.
 - The block name **describes its purpose** (“What is it?” — `menu` or `button`), not its state (“What does it look like?” — `red` or `big`).
 - Composed-words separated by a single hyphen `-`. E.g., `block-name`.
-- The block shouldn't influence its environment, meaning you **shouldn't set the external geometry**. E.g., `margin` 🚫) or *positioning* for the block.
+- The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
 
 #### Nesting
 - Blocks can be nested in each other.
@@ -40,11 +37,19 @@ An **independent page component** that can be reused.
     <form class="search"></form>
 </header>
 ```
+```css
+/* `header` block */
+.header {}
+```
+```css
+/* `search` block */
+.search {}
+```
 
-## Element
+## 📑 Element
 - A composite **part of a block that can't be used separately from it**.
 - The element name **describes its purpose** (“What is this?” — `item`, `text`, etc.), not its state (“What type, or what does it look like?” — `red`, `big`, etc.).
-- - Composed-words separated by a single hyphen `-`. E.g., `element-name`.
+- Composed-words separated by a single hyphen `-`. E.g., `element-name`.
 - The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
 
 #### Nesting
@@ -66,15 +71,18 @@ An **independent page component** that can be reused.
 </form>
 ```
 ```css
+/* `search` block */
 .search {}
+/* `container` element in the `search` block */
 .search_container {}
+/* `input` element in the `search` block */
 .search_input {}
+/* `button` element in the `search` block */
 .search_button {}
 ```
+In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
-In the example above, though the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. This allows you to change a block's DOM structure without making changes in the code for each separate element.
-
-## Modifier
+## 🎨 Modifier
 - An entity that helps define the **appearance, state, or behavior of a block or element**.
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on — `big` or `dark`), its state (“How is it different from the others?” — `disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?” — such as `switch-theme`).
 - A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
@@ -96,20 +104,26 @@ In the example above, though the elements are nested in the DOM tree, they *must
 </form>
 ```
 ```css
+/* `search` block */
 .search {}
+/* `dark` modifier of the `search` block */
 .search.-dark {}
+/* `container` element in the `search` block */
 .search_container {}
+/* `reverse` modifier of the `container` element */
 .search_container.-reverse {}
+/* `input` element in the `search` block */
 .search_input {}
+/* `focused` modifier of the `input` element */
 .search_input.-focused {}
+/* `button` element in the `search` block */
 .search_button {}
 ```
 
 # CSS concepts
 ## General recommendations
 - Follow @mdo's [Code Guide](http://codeguide.co/#css-syntax) to make code formatting consistent.
-- Prefer classes to target an HTML element, excepting the *base styles*.
-- Global mixins and settings from *base styles* must cascade to all other blocks.
+- Prefer classes to target an HTML element.
 - Avoid too much use of compound words. Instead of `super-long-block-name`, use `block-name`.
 - Prefer composition of classes instead of inheritance. This keeps the code uncoupled and flexible.
 
@@ -132,21 +146,21 @@ In other words, **you shall not set external geometry/positioning in the main bl
 </body>
 ```
 ```css
-/* `container` element of `page` block sets positioning of `header` block */
+/* `page_container` sets positioning of the `header` block */
 .page_container .header { float: left; }
-/* `container` element of `page` block sets positioning of `footer` block */
+/* `page_container` sets positioning of the `footer` block */
 .page_container .footer { float: right; }
 ```
 
 *Wrong example:* 🚫
 ```css
-/* Never set external geometry/positioning in the main block selector */
+/* Never set external geometry/positioning on the main block selector */
 .header { float: left; }
 ```
 
 ### Properties to avoid on the main block selector
 ```css
-.avoid {
+.block-avoid {
   position: fixed | absolute | sticky;
   top: any;
   right: any;
@@ -168,9 +182,9 @@ In other words, **you shall not set external geometry/positioning in the main bl
 ```
 
 ## Base blocks
-The *base blocks* are small foundational **UI building pieces** that are used throughout the other blocks. Even though the idea of the **Lean BEM** methodology is to make every block independent from each other, there *should* be some dependence on some elemental styles of a design system. For example, a typographic scale defines the system's base measurement unit (`rem`); or the brand's color palette may be needed to tint the elements; and so on.
+The *base blocks* are small foundational **UI building pieces** that are needed by the other blocks. Even though the overall idea is to make every block independent from each other, there *should* be some dependence on some elemental styles of a design system. For example, a typographic scale may define the most basic measurement unit of a system (`rem`); or a brand's color palette may be needed to tint elements; and so on.
 
-In practical terms, these *base blocks* will follow a regular block's naming and organization convention. Excepting that is expected that you target HTML selectors before you use classes.
+In practical terms, these *base blocks* will follow a regular block's naming and organization convention, except that is expected that you target HTML selectors before you use classes.
 
 Some *base blocks* examples.
 
@@ -183,13 +197,15 @@ Some *base blocks* examples.
 | `global`      | `.global`                | Resets and global HTML base definitions                             |
 
 ## Page blocks
-They encompass specific styles for pages and themes. It also can be useful to tie a group of *blocks* together, forming a cohesive layout. On smaller projects, this layer can be used to tie **styles together without worrying too much about modularity**.
+They encompass specific styles for pages and themes. It also can be useful to tie a group of *blocks* together, forming a cohesive layout. On smaller projects, this layer can be used to tie **styles together without worrying too much about modularity**. Just add a `page-` prefix before the page name.
+
+For example, a login page would have a `page-login` stylesheet that would set the styles and link together the `inputs`, `buttons`, and `imagery` blocks (alongside the [base blocks](#base-blocks), of course).
 
 # File structure
 Below are two examples of a **Lean BEM** file structure. They're formed by three layers of folders, ordered by importance: `base`, `blocks` and `pages`. Also, inside this repository, you'll find a template for SCSS.
 
 ### Default
-A default file structure. Set global CSS variables (“CSS Custom Properties”) in the base blocks and re-use them throughout the other blocks (e.g., `colors` palette, `motion` transitions, and so on.)
+A default file structure. Set global CSS variables (“CSS Custom Properties”) in the [base blocks](#base-blocks) and re-use them throughout the other blocks (e.g., `colors` palette, `motion` transitions, and so on.)
 ```
     css/
     ├── base/
@@ -199,10 +215,10 @@ A default file structure. Set global CSS variables (“CSS Custom Properties”)
     │   ├── motion.css
     │   └── global.css
     ├── blocks/
-    │   ├── block_name.css
+    │   ├── block-name.css
     │   └── …
     └── pages/
-        ├── page_name.css
+        ├── page-name.css
         └── …
 ```
 
@@ -223,9 +239,9 @@ A SCSS (or Less) file structure. Set variables, mixins and functions in the `mix
     │       ├── motion.scss
     │       └── utilities.scss
     ├── blocks/
-    │   ├── block_name.scss
+    │   ├── block-name.scss
     │   └── …
     └── pages/
-        ├── page_name.scss
+        ├── page-name.scss
         └── …
 ```
