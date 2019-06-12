@@ -4,12 +4,13 @@
 
 [BEM](https://en.bem.info/methodology/) (Block, Element, Modifier) is a component-based approach to web development. The idea is to divide the user interface into independent blocks, which are formed by elements and may have some modifiers. This modular approach makes for faster development and easier maintenance.
 
-**Lean BEM** is a cleaner and aesthetically improved modification of the former methodology *for CSS*. It proposes a less bloated way for writing CSS classes, without losing the modularity. Also, it brings back the concept of cascade by introducing [base blocks](#base-blocks) that forms the scaffold of every other *blocks* of the design system.
+**Lean BEM** is a cleaner and aesthetically improved modification of the former methodology *for CSS*. It proposes a less bloated way for writing CSS classes, without losing the modularity.
 
 So, in place of this:
 ```html
 <!-- Yandex's BEM — https://en.bem.info/methodology/ -->
 <button class="button button__primary button__primary_disabled button_big">…</button>
+
 <!-- Non-canonical BEM — http://getbem.com -->
 <button class="button button__primary button__primary--disabled button--big">…</button>
 ```
@@ -17,6 +18,8 @@ We'd have this:
 ```html
 <button class="button button_primary -disabled -big">…</button>
 ```
+
+Also, it brings back the concept of cascade by introducing [base blocks](#base-blocks) that forms the scaffold of every other *blocks* of the design system.
 
 # Key concepts
 ## 🗂 Block
@@ -205,7 +208,7 @@ For example, a login page would have a `page-login` stylesheet that would set th
 Below are two examples of a **Lean BEM** file structure. They're formed by three layers of folders, ordered by importance: `base`, `blocks` and `pages`. Also, inside this repository, you'll find a template for SCSS.
 
 ### Default
-A default file structure. Set global CSS variables (“CSS Custom Properties”) in the [base blocks](#base-blocks) and re-use them throughout the other blocks (e.g., `colors` palette, `motion` transitions, and so on.)
+A default file structure. Set global CSS variables (“CSS Custom Properties”) in the [base blocks](#base-blocks) and re-use them throughout the other blocks.
 ```
     css/
     ├── base/
