@@ -21,7 +21,7 @@ We'd have this:
 
 Also, **Lean BEM** brings back the concept of cascade by introducing [base blocks](#base-blocks) that forms the scaffold of every other *blocks* of the design system.
 
-#### Learn more
+### Learn more
 - [Key concepts](#key-concepts)
   - [Block](#-block)
   - [Element](#-element)
