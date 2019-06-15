@@ -19,7 +19,22 @@ We'd have this:
 <button class="button button_primary -disabled -big">…</button>
 ```
 
-Also, it brings back the concept of cascade by introducing [base blocks](#base-blocks) that forms the scaffold of every other *blocks* of the design system.
+Also, **Lean BEM** brings back the concept of cascade by introducing [base blocks](#base-blocks) that forms the scaffold of every other *blocks* of the design system.
+
+#### Learn more
+- [Key concepts](#key-concepts)
+- - [Block](#-block)
+- - [Element](#-element)
+- - [Modifier](#-modifier)
+- [CSS concepts](#css-concepts)
+- - [General recommendations](#general-recommendations)
+- - [Blocks inside blocks](#blocks-inside-blocks)
+- - [Properties to avoid on the main block selector](#properties-to-avoid-on-the-main-block-selector)
+- - [Base blocks](#base-blocks)
+- - [Page blocks](#page-blocks)
+- [File structure](#file-structure)
+- - [Default](#default)
+- - [SCSS/Less](#scssless)
 
 # Key concepts
 ## 🗂 Block
