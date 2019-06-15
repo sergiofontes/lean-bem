@@ -23,18 +23,18 @@ Also, **Lean BEM** brings back the concept of cascade by introducing [base block
 
 #### Learn more
 - [Key concepts](#key-concepts)
-- - [Block](#-block)
-- - [Element](#-element)
-- - [Modifier](#-modifier)
+  - [Block](#-block)
+  - [Element](#-element)
+  - [Modifier](#-modifier)
 - [CSS concepts](#css-concepts)
-- - [General recommendations](#general-recommendations)
-- - [Blocks inside blocks](#blocks-inside-blocks)
-- - [Properties to avoid on the main block selector](#properties-to-avoid-on-the-main-block-selector)
-- - [Base blocks](#base-blocks)
-- - [Page blocks](#page-blocks)
+  - [General recommendations](#general-recommendations)
+  - [Blocks inside blocks](#blocks-inside-blocks)
+  - [Properties to avoid on the main block selector](#properties-to-avoid-on-the-main-block-selector)
+  - [Base blocks](#base-blocks)
+  - [Page blocks](#page-blocks)
 - [File structure](#file-structure)
-- - [Default](#default)
-- - [SCSS/Less](#scssless)
+  - [Default](#default)
+  - [SCSS/Less](#scssless)
 
 # Key concepts
 ## 🗂 Block
