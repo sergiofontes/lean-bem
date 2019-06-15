@@ -1,4 +1,4 @@
-<img src="/images/logo.svg" width="380" height="auto" alt="Lean BEM, by Guava" />
+<img src="/images/logo.svg" width="450" height="auto" alt="Lean BEM, by Guava" />
 
 ***
 
