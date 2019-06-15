@@ -9,7 +9,9 @@ $base:         16px;
 $baseline:     1.5;
 
 // Fontfaces
-$font:         "Aperçu", "Roboto", sans-serif;
+$sans:         sans-serif;
+$serif:        serif;
+$mono:         mono;
 
 // Weights
 $thin:         100;
@@ -22,7 +24,6 @@ $bold:         700;
 $super:        900;
 
 // Modular scale settings
-// www.modularscale.com/?16&px&1.125
 $modularscale: (
   base:        1rem,
   ratio:       1.125,
@@ -36,4 +37,3 @@ $modularscale: (
     @return ms($size, $thread: $t);
   }
 }
-
