@@ -49,6 +49,8 @@ But let's take a step back and review what BEM is...
 But what means each of these BEM words? Block stands for an independent component, no matter its complexitiy. Element is a part of the block, and can't be used separately. Modifier conveys appearance, state or behavior.
 
 ## Block
+<img src="/images/block.svg" width="155" height="auto" alt="A block example" />
+
 An **independent page component** that can be **reused**.
 - The block name **describes its purpose** (“What is it?” — `button` or `icon`)
   - It *doesn't* describe its state (“What does it look like?” — `red` or `big`) 🚫.
@@ -56,7 +58,7 @@ An **independent page component** that can be **reused**.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
 
 #### Nesting
-- Blocks can be nested in each other.
+- [Blocks can be nested](#blocks-inside-blocks) in each other.
 - You can have any number of nesting levels in the DOM tree.
 
 *Example:*
@@ -70,6 +72,8 @@ An **independent page component** that can be **reused**.
 ```
 
 ## Element
+<img src="/images/element.svg" width="500" height="auto" alt="A element example" />
+
 - A composite **part of a block that can't be used separately from it**.
 - The element name **describes its purpose** (“What is this?” — `item`, `text`, etc.), not its state (“What type, or what does it look like?” — `red`, `big`, etc.).
 - Composed-words separated by a single hyphen `-`. E.g., `element-name`.
@@ -106,6 +110,8 @@ An **independent page component** that can be **reused**.
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
 ## Modifier
+<img src="/images/modifier.svg" width="339" height="auto" alt="A modifier example" />
+
 - An entity that helps define the **appearance, state, or behavior of a block or element**.
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on — `big` or `dark`), its state (“How is it different from the others?” — `disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?” — such as `switch-theme`).
 - A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
