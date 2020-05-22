@@ -2,7 +2,7 @@
 
 ***
 
-It’s BEM. But cleaner and prettier.
+*It’s BEM. But lean.*
 
 # What's Lean BEM
 It's an alternate naming convention to the classic BEM method. And it's simple: composed-words are separated by a single hyphen `-`; blocks are separated from elements by a single underline `_`; and modifiers are standalone classes that only work within the parent block. That’s it.
@@ -20,13 +20,13 @@ We'd have this:
 <button class="button button_primary -disabled -big">…</button>
 ```
 
-#### Why?
+### Why?
 1. It's more readable—the classes' names are shorter, (less) ugly and without (much) repetition.
 2. It denotes modifier classes as composables, which can be added or removed without much prejudice to the block.
 
 But there's more than meets the eye. Lean BEM methodology brings some old concepts back to the spotlight.
 
-#### Other differences from canonical BEM
+### Other differences from canonical BEM
 - It's ok to rely a little bit on cascading.
   - Lean BEM has global blocks[1] to share things like variables, color palette and typography with other components.
   - CSS resets are still important. As said above, we shouldn't fear (so much) the cascading.
@@ -57,7 +57,7 @@ An **independent page component** that can be **reused**.
 - Composed-words separated by a single hyphen `-`. E.g., `.block-name`.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
 
-#### Nesting
+### Nesting
 - [Blocks can be nested](#blocks-inside-blocks) in each other.
 - You can have any number of nesting levels in the DOM tree.
 
@@ -79,7 +79,7 @@ An **independent page component** that can be **reused**.
 - Composed-words separated by a single hyphen `-`. E.g., `element-name`.
 - The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
 
-#### Nesting
+### Nesting
 - Elements can be nested inside each other.
 - You can have any number of nesting levels.
 - An element is always part of a block, not another element.
@@ -110,7 +110,7 @@ An **independent page component** that can be **reused**.
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
 ## Modifier
-<img src="/images/modifier.svg" width="339" height="auto" alt="A modifier example" />
+<img src="/images/modifiers.svg" width="339" height="auto" alt="A modifiers example" />
 
 - An entity that helps define the **appearance, state, or behavior of a block or element**.
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on — `big` or `dark`), its state (“How is it different from the others?” — `disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?” — such as `switch-theme`).
@@ -177,7 +177,7 @@ In other words, **you shall not set external geometry/positioning in the main bl
 .header { float: left; }
 ```
 
-#### Properties to avoid on the main block selector
+### Properties to avoid on the main block selector
 ```css
 .block {
   position: fixed | absolute | sticky;
@@ -222,7 +222,7 @@ For example, a login page would have a `page-login` stylesheet that would set th
 # File structure
 Below are two examples of a Lean BEM file structure. They're formed by three layers of folders, ordered by importance: `base`, `blocks` and `pages`. Also, inside this repository, you'll find a template for SCSS.
 
-#### Default
+### Default
 A default file structure. Set global CSS variables (“CSS Custom Properties”) in the [base blocks](#base-blocks) and re-use them throughout the other blocks.
 ```
     css/
@@ -239,7 +239,7 @@ A default file structure. Set global CSS variables (“CSS Custom Properties”)
         └── …
 ```
 
-#### SCSS/Less
+### SCSS/Less
 A SCSS (or Less) file structure. Set variables, mixins and functions in the `mixins/` folder, and re-use them throughout the other blocks.
 ```
     scss/
