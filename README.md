@@ -50,7 +50,7 @@ But what means each of these BEM words? Block stands for an independent componen
 An **independent page component** that can be **reused**.
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
   - It *doesn't* describe its state (“What does it look like?”—`red` or `big`) 🚫.
-- Composed-words separated by a single hyphen `-`. E.g., `.block-name`.
+- Composed-words separated by a single hyphen `-`. Eg., `.block-name`.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
 
 ### Nesting
@@ -64,7 +64,7 @@ An **independent page component** that can be **reused**.
 ```
 ```css
 /* `button` block */
-.button {}
+.button {…}
 ```
 
 ## Element
@@ -72,7 +72,7 @@ An **independent page component** that can be **reused**.
 
 - A composite **part of a block that can't be used separately from it**.
 - The element name **describes its purpose** (“What is this?”—`item`, `text`, etc.), not its state (“What type, or what does it look like?”—`red`, `big`, etc.).
-- Composed-words separated by a single hyphen `-`. E.g., `element-name`.
+- Composed-words separated by a single hyphen `-`. Eg., `element-name`.
 - The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
 
 ### Nesting
@@ -88,20 +88,20 @@ An **independent page component** that can be **reused**.
   <!-- `label` element of the `button` block -->
   <span class="button_label">Download</span>
   <!-- `icon` element of the `button` block -->
-  <span class="icon_download"></span>
+  <span class="icon icon_download"></span>
 </button>
 ```
 ```css
 /* `button` block */
-.button {}
+.button {…}
 /* `secondary` element of the `button` block */
-.button_secondary {}
+.button_secondary {…}
 /* `label` element of the `button` block */
-.button_label {}
+.button_label {…}
 ```
 ```css
 /* `search` element of the `icon` block */
-.icon_download {}
+.icon_download {…}
 ```
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
@@ -112,8 +112,11 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`big` or `dark`), its state (“How is it different from the others?”—`disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `switch-theme`).
 - A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
 - Each modifier is a combined class (used alongside the block or element class).
-- The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element. E.g., `-modifier`.
-- Composed-words separated by a single hyphen `-`. E.g., `-modifier-name`.
+- The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element. Eg., `-modifier`.
+- Composed-words separated by a single hyphen `-`. Eg., `-modifier-name`.
+- When possible, combine a modifier class with its parent one. Eg., `.button.-big {…}`.
+  - Or combine them with an element. Eg., `.button_primary.-disabled {…}`.
+  - Don't nest modifier classes, or you can end up missing the target. Eg., `.search .-big {…}` 🚫.
 
 ### Example
 ```html
@@ -122,16 +125,16 @@ In the example above, although the elements are nested in the DOM tree, they *mu
   <!-- `label` element of the `button` block -->
   <span class="button_label">Download</span>
   <!-- `download` element of the `icon` block with `-big` modifier -->
-  <span class="icon_download -big"></span>
+  <span class="icon icon_download -big"></span>
 </button>
 ```
 ```css
 /* `button` block with `-big` modifier */
-.button.-big {}
+.button.-big {…}
 ```
 ```css
 /* `icon` block with `-big` modifier */
-.icon_download.-big {}
+.icon.-big {…}
 ```
 
 # CSS concepts
@@ -140,6 +143,8 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 - Rely in a code formatting standard to make them consistent.
   - Lean BEM suggests @mdo's [Code Guide](http://codeguide.co/#css-syntax).
 - Avoid too much use of compound words. Instead of `super-long-block-name`, use `block-name`. Preferably, `block`.
+- Avoid much class nesting in CSS.
+  - Try to stick with two levels of depth. Eg., `.button .icon_download {…}`.
 - Prefer composition of classes instead of inheritance. This keeps the code uncoupled and flexible.
 
 ## Blocks inside blocks
