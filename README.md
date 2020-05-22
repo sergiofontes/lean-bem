@@ -8,7 +8,7 @@
 ***
 
 # What's Lean BEM
-It's a methodology that helps you to name, understand & organize your stylesheets. It's a readability-driven, alternate naming convention to the classic BEM. And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
+It's a methodology that helps you to name, understand & organize your stylesheets. It's a readability-driven, alternate naming convention to the [classic BEM](https://en.bem.info/methodology/). And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
 
 So, in place of this:
 ```html
