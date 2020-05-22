@@ -8,7 +8,7 @@
 ***
 
 # What's Lean BEM
-It's an alternate naming convention to the classic BEM method. And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
+It's a methodology that helps you to name, understand & organize your stylesheets. It's a readability-driven, alternate naming convention to the classic BEM. And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
 
 So, in place of this:
 ```html
@@ -54,7 +54,7 @@ But let's take a step back and review what BEM is...
 # Key concepts
 <img src="/images/intro.svg" width="100%" height="auto" alt="A figure with a dissected block, showcasing all of its elements and modifiers" />
 
-[BEM](https://en.bem.info/methodology/) (Block, Element, Modifier) is a component-based approach to web development. The idea is to divide the user interface into **independent blocks**, which are formed by elements and may have some modifiers. This modular approach makes for faster development and easier maintenance.
+[BEM](https://en.bem.info/methodology/) (Block, Element, Modifier) is a component-based approach to web development. The idea is to slice the interface into **independent blocks**, which are formed by elements and may have some modifiers. This modular approach makes for faster development and easier maintenance.
 
 But what means each of these BEM words? Block stands for an independent component, no matter its complexitiy. Element is a part of the block, and can't be used separately. Modifier conveys appearance, state or behavior.
 
