@@ -185,7 +185,7 @@ In other words, **you shall not set external geometry/positioning in the main bl
 .page_container .footer { float: right; }
 ```
 
-*Wrong example:* 🚫
+*Please don't:* 🚫
 ```css
 /* Never set external geometry/positioning on the main block selector */
 .header { float: left; }
