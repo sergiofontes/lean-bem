@@ -23,15 +23,26 @@ We'd have this:
 <button class="button button_primary -disabled -big">…</button>
 ```
 
-### Why?
+### Lean BEM (and BEM as well) helps to...
+- Move layout fragments around within a project safely;
+- Create stable, predictable and clear code;
+- Reduce the project debugging time.
+
+### By ensuring...
+- Reusable components;
+- Independent styles;
+- Tame of cascade and inheritance hell;
+- Use of an understandable naming scheme.
+
+### Why lean?
 1. It's more readable—the classes' names are shorter, (less) ugly and without (much) repetition.
 2. It denotes modifier classes as composable, which can be added or removed without much prejudice to the block.
 
-But there's more than meets the eye. Lean BEM methodology brings some old concepts back to the spotlight: cascade!
+But there's more than meets the eye. Lean BEM methodology also brings an old concept back to the spotlight: cascade.
 
 ### Other differences from canonical BEM
 - It's ok to rely a little bit on cascading.
-  - Lean BEM has global blocks[1] that share things to the other components, like variables, color palette and typography.
+  - Lean BEM has global blocks[1] that share styles with the other components, like variables, color palette and typography.
   - CSS resets are still important. As said above, we shouldn't fear (so much) the cascading.
 - [Modifiers](#modifier) classes are combined with their block or element—it cannot be used alone.
 
@@ -45,7 +56,7 @@ But let's take a step back and review what BEM is...
 But what means each of these BEM words? Block stands for an independent component, no matter its complexitiy. Element is a part of the block, and can't be used separately. Modifier conveys appearance, state or behavior.
 
 ## Block
-<img src="/images/block.svg" width="155" height="auto" alt="A block example" />
+<img src="/images/block.svg" width="155" height="auto" alt="Example of a block" />
 
 An **independent page component** that can be **reused**.
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
@@ -68,7 +79,7 @@ An **independent page component** that can be **reused**.
 ```
 
 ## Element
-<img src="/images/element.svg" width="500" height="auto" alt="A element example" />
+<img src="/images/element.svg" width="500" height="auto" alt="Example of a element" />
 
 - A composite **part of a block that can't be used separately from it**.
 - The element name **describes its purpose** (“What is this?”—`item`, `text`, etc.), not its state (“What type, or what does it look like?”—`red`, `big`, etc.).
@@ -106,9 +117,9 @@ An **independent page component** that can be **reused**.
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
 ## Modifier
-<img src="/images/modifiers.svg" width="339" height="auto" alt="A modifiers example" />
+<img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" />
 
-- An entity that helps define the **appearance, state, or behavior of a block or element**.
+- An entity that helps define the **appearance, state, or behavior of a block or a element**.
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`big` or `dark`), its state (“How is it different from the others?”—`disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `switch-theme`).
 - A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
 - Each modifier is a combined class (used alongside the block or element class).
