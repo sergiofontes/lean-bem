@@ -62,7 +62,7 @@ But what means each of these BEM words? Block stands for an independent componen
 
 An **independent page component** that can be **reused**.
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
-  - It *doesn't* describe its state (“What does it look like?”—`red` or `big`) 🚫.
+  - It *doesn't* describe its state (“What does it look like?”—`red` or `big`). 🚫
 - Composed-words separated by a single hyphen `-`. Eg., `.block-name`.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
 
@@ -92,7 +92,7 @@ An **independent page component** that can be **reused**.
 - Elements can be nested inside each other.
 - You can have any number of nesting levels.
 - An element is always part of a block, not another element.
-  - This means that element names *can't* define a hierarchy, such as `block_element-element-one_element-two` 🚫.
+  - This means that element names *can't* define a hierarchy, such as `block_element-element-one_element-two`. 🚫
 
 ### 👩🏻‍💻
 ```html
@@ -129,7 +129,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 - Composed-words separated by a single hyphen `-`. Eg., `-modifier-name`.
 - When possible, combine a modifier class with its parent one. Eg., `.button.-big {…}`.
   - Or combine them with an element. Eg., `.button_primary.-disabled {…}`.
-  - Don't nest modifier classes, or you can end up missing the target. Eg., `.search .-big {…}` 🚫.
+  - Don't nest modifier classes, or you can end up missing the target. Eg., `.search .-big {…}`. 🚫
 
 ### 👩🏻‍💻
 ```html
