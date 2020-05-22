@@ -12,10 +12,10 @@ It's an alternate naming convention to the classic BEM method. And it's simple: 
 
 So, in place of this:
 ```html
-<!-- Yandex's BEM — https://en.bem.info/methodology/ -->
+<!-- Yandex's BEM—https://en.bem.info/methodology/ -->
 <button class="button button__primary button__primary_disabled button_big">…</button>
 
-<!-- Non-canonical BEM — http://getbem.com -->
+<!-- Non-canonical BEM—http://getbem.com -->
 <button class="button button__primary button__primary--disabled button--big">…</button>
 ```
 We'd have this:
@@ -25,7 +25,7 @@ We'd have this:
 
 ### Why?
 1. It's more readable—the classes' names are shorter, (less) ugly and without (much) repetition.
-2. It denotes modifier classes as composables, which can be added or removed without much prejudice to the block.
+2. It denotes modifier classes as composable, which can be added or removed without much prejudice to the block.
 
 But there's more than meets the eye. Lean BEM methodology brings some old concepts back to the spotlight: cascade!
 
@@ -48,8 +48,8 @@ But what means each of these BEM words? Block stands for an independent componen
 <img src="/images/block.svg" width="155" height="auto" alt="A block example" />
 
 An **independent page component** that can be **reused**.
-- The block name **describes its purpose** (“What is it?” — `button` or `icon`)
-  - It *doesn't* describe its state (“What does it look like?” — `red` or `big`) 🚫.
+- The block name **describes its purpose** (“What is it?”—`button` or `icon`)
+  - It *doesn't* describe its state (“What does it look like?”—`red` or `big`) 🚫.
 - Composed-words separated by a single hyphen `-`. E.g., `.block-name`.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
 
@@ -71,7 +71,7 @@ An **independent page component** that can be **reused**.
 <img src="/images/element.svg" width="500" height="auto" alt="A element example" />
 
 - A composite **part of a block that can't be used separately from it**.
-- The element name **describes its purpose** (“What is this?” — `item`, `text`, etc.), not its state (“What type, or what does it look like?” — `red`, `big`, etc.).
+- The element name **describes its purpose** (“What is this?”—`item`, `text`, etc.), not its state (“What type, or what does it look like?”—`red`, `big`, etc.).
 - Composed-words separated by a single hyphen `-`. E.g., `element-name`.
 - The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
 
@@ -109,7 +109,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 <img src="/images/modifiers.svg" width="339" height="auto" alt="A modifiers example" />
 
 - An entity that helps define the **appearance, state, or behavior of a block or element**.
-- The modifier name describes its appearance (“What size?” or “Which theme?” and so on — `big` or `dark`), its state (“How is it different from the others?” — `disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?” — such as `switch-theme`).
+- The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`big` or `dark`), its state (“How is it different from the others?”—`disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `switch-theme`).
 - A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
 - Each modifier is a combined class (used alongside the block or element class).
 - The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element. E.g., `-modifier`.
