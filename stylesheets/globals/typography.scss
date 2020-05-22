@@ -1,6 +1,6 @@
-///////////////////////////////////////////////////////////
-// Typography                               (Base block) //
-///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+// Typography                                                 (Global block) //
+///////////////////////////////////////////////////////////////////////////////
 
 :root {
   --font-sans:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -11,7 +11,11 @@
 
 // Font system ////////////////////////////////////////////
 
-html, body {}
+body {
+  font-family: var(--font-sans);
+  font-size:   var(--font-size);
+  line-height: var(--line-height);
+}
 
 // Title
 h1 {}
