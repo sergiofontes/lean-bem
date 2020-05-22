@@ -1,7 +1,9 @@
-<img src="/images/logo.svg" width="450" height="auto" alt="Lean BEM, by Guava" />
-
-*It’s BEM. But lean.*
-
+<p align="center">
+  <img src="/images/logo.svg" width="450" height="auto" alt="Lean BEM, by Guava" align="center" />
+</p>
+<p align="center">
+  <em>It’s BEM. But lean.</em>
+</p>
 ***
 
 # What's Lean BEM
