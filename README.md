@@ -5,7 +5,7 @@
 *It’s BEM. But lean.*
 
 # What's Lean BEM
-It's an alternate naming convention to the classic BEM method. And it's simple: composed-words are separated by a single hyphen `-`; blocks are separated from elements by a single underline `_`; and modifiers are standalone classes that only work within the parent block. That’s it.
+It's an alternate naming convention to the classic BEM method. And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
 
 So, in place of this:
 ```html
@@ -30,16 +30,9 @@ But there's more than meets the eye. Lean BEM methodology brings some old concep
 - It's ok to rely a little bit on cascading.
   - Lean BEM has global blocks[1] to share things like variables, color palette and typography with other components.
   - CSS resets are still important. As said above, we shouldn't fear (so much) the cascading.
-- It's necessary to combine selectors when using modifiers—it cannot be used without an element class.[2]
+- It's necessary to combine selectors when using [modifiers](#modifier)—it cannot be used without an element class.[2]
 
-[1] Lean BEM divides the blocks into three subcategories: base (or global), regular, and pages. The base blocks are global styles that cascade throughout other blocks; the regular blocks are the UI components; and pages blocks are a cluster of regular blocks within a place or theme.
-[2] For instance:
-```css
-/* Wrong; could possibly affect other components */
-.-big {}
-/* Correct; only affect the `button` block */
-.button.-big {}
-```
+[1] Lean BEM divides blocks into three subcategories: [base](#base-blocks) (or global), regular, and [pages](#page-blocks). Base blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
 
 But let's take a step back and review what BEM is...
 
@@ -61,7 +54,7 @@ An **independent page component** that can be **reused**.
 - [Blocks can be nested](#blocks-inside-blocks) in each other.
 - You can have any number of nesting levels in the DOM tree.
 
-*Example:*
+### Example:
 ```html
 <!-- `button` block -->
 <button class="button">…</button>
@@ -85,7 +78,7 @@ An **independent page component** that can be **reused**.
 - An element is always part of a block, not another element.
   - This means that element names *can't* define a hierarchy, such as `block_element-element-one_element-two` 🚫.
 
-*Example:*
+### Example:
 ```html
 <!-- `button` block -->
 <button class="button button_secondary">
@@ -119,7 +112,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 - The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element. E.g., `-modifier`.
 - Composed-words separated by a single hyphen `-`. E.g., `-modifier-name`.
 
-*Example:*
+### Example:
 ```html
 <!-- `button` block with `-big` modifier -->
 <button class="button button_secondary -big">
@@ -151,7 +144,7 @@ It's totally fine (and expected) to have nested blocks. Since they're functional
 
 In other words, **you shall not set external geometry/positioning in the main block selector**.
 
-*Example:*
+### Example:
 ```html
 <!-- `page` block -->
 <body class="page">
@@ -209,10 +202,9 @@ Some *base blocks* examples.
 
 | *Base blocks* | *Base block selector*    | *Description*                                                       |
 | ------------- | ------------------------ | ------------------------------------------------------------------- |
-| `colors`      | `.color`                 | Color pallette                                                      |
+| `colors`      | `.color`                 | Color palette                                                       |
 | `typography`  | `.typography` or `.typo` | Type scale, families, headers, paragraphs, links, lists, small, etc |
-| `motion`      | `.motion`                | Motion patterns and effects for interaction states                  |
-| `global`      | `.global`                | Resets and global HTML base definitions                             |
+| `global`      | `.global`                | Resets, global HTML tags, global classes                            |
 
 ## Page blocks
 They encompass specific styles for pages and themes. It also can be useful to tie a group of *blocks* together, forming a cohesive layout. On smaller projects, this layer can be used to tie **styles together without worrying too much about modularity**. Just add a `page-` prefix before the page name.
@@ -229,7 +221,6 @@ A default file structure. Set global CSS variables (“CSS Custom Properties”)
     ├── base/
     │   ├── colors.css
     │   ├── typography.css
-    │   ├── motion.css
     │   └── global.css
     ├── blocks/
     │   ├── block-name.css
@@ -244,16 +235,10 @@ A SCSS (or Less) file structure. Set variables, mixins and functions in the `mix
 ```
     scss/
     ├── base/
-    │   ├── mixins.scss
+    │   ├── utilities.scss
+    │   ├── colors.scss
     │   ├── typography.scss
-    │   ├── motion.scss
-    │   ├── global.scss
-    │   └── mixins/
-    │       ├── colors.scss
-    │       ├── typography.scss
-    │       ├── grid.scss
-    │       ├── motion.scss
-    │       └── utilities.scss
+    │   └── global.scss
     ├── blocks/
     │   ├── block-name.scss
     │   └── …
