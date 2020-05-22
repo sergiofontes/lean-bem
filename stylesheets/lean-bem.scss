@@ -10,10 +10,9 @@
 
 // Base blocks ////////////////////////////////////////////
 
-@import "base/mixins";     // Base mixins
+@import "base/utilities";  // Mixins & functions utilities
+@import "base/colors";     // Colors palette
 @import "base/typography"; // Typography system
-@import "base/grid";       // Grid settings & spacing patterns
-@import "base/motion";     // Motion & transition patterns
 @import "base/global";     // Global HTML resets
 
 // Blocks /////////////////////////////////////////////////

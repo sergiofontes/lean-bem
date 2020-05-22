@@ -1,0 +1,34 @@
+///////////////////////////////////////////////////////////
+// Colors                                   (Base mixin) //
+///////////////////////////////////////////////////////////
+
+:root {
+
+// Palette ////////////////////////////////////////////////
+
+  --theme:             #fff;
+  --neutral:           #fff;
+  --accent:            #fff;
+
+// Semantic colors ////////////////////////////////////////
+
+  --standard:          #fff;
+  --primary:           #fff;
+  --success:           #fff;
+  --error:             #fff;
+  --warning:           #fff;
+
+  --background-dark:   #fff;
+  --background-light:  #fff;
+
+  --foreground-dark:   #fff;
+  --foreground-light:  #fff;
+
+  // Text
+  --text-base:         #fff;
+  --text-select:       #fff;
+
+  // Border
+  --border-dark:       #fff;
+  --border-light:      #fff;
+}
