@@ -1,5 +1,6 @@
 <img src="/images/logo.svg" width="450" height="auto" alt="Lean BEM, by Guava" />
 *It’s BEM. But lean.*
+
 ***
 
 # What's Lean BEM
@@ -64,7 +65,6 @@ An **independent page component** that can be **reused**.
 
 ## Element
 <img src="/images/element.svg" width="500" height="auto" alt="A element example" />
-
 - A composite **part of a block that can't be used separately from it**.
 - The element name **describes its purpose** (“What is this?” — `item`, `text`, etc.), not its state (“What type, or what does it look like?” — `red`, `big`, etc.).
 - Composed-words separated by a single hyphen `-`. E.g., `element-name`.
@@ -102,7 +102,6 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 
 ## Modifier
 <img src="/images/modifiers.svg" width="339" height="auto" alt="A modifiers example" />
-
 - An entity that helps define the **appearance, state, or behavior of a block or element**.
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on — `big` or `dark`), its state (“How is it different from the others?” — `disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?” — such as `switch-theme`).
 - A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
