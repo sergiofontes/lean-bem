@@ -4,6 +4,7 @@
 <p align="center">
   <em>It’s BEM. But lean.</em>
 </p>
+
 ***
 
 # What's Lean BEM
