@@ -50,7 +50,7 @@ But there's more than meets the eye. Lean BEM methodology also brings an old con
 
 But let's take a step back and review what BEM is...
 
-# What's BEM?
+# Key concepts?
 [BEM](https://en.bem.info/methodology/) (Block, Element, Modifier) is a component-based approach to web development. The idea is to divide the user interface into **independent blocks**, which are formed by elements and may have some modifiers. This modular approach makes for faster development and easier maintenance.
 
 But what means each of these BEM words? Block stands for an independent component, no matter its complexitiy. Element is a part of the block, and can't be used separately. Modifier conveys appearance, state or behavior.
