@@ -136,7 +136,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 
 # CSS concepts
 ## General recommendations
-- Prefer classes to target an element instead of an HTML tag.
+- Target classes instead of an HTML tag. Don't target an ID or an attribute.
 - Rely in a code formatting standard to make them consistent.
   - Lean BEM suggests @mdo's [Code Guide](http://codeguide.co/#css-syntax).
 - Avoid too much use of compound words. Instead of `super-long-block-name`, use `block-name`. Preferably, `block`.
