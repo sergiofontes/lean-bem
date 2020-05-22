@@ -70,7 +70,7 @@ An **independent page component** that can be **reused**.
 - [Blocks can be nested](#blocks-inside-blocks) in each other.
 - You can have any number of nesting levels in the DOM tree.
 
-### Example
+### 👩🏻‍💻
 ```html
 <!-- `button` block -->
 <button class="button">…</button>
@@ -94,7 +94,7 @@ An **independent page component** that can be **reused**.
 - An element is always part of a block, not another element.
   - This means that element names *can't* define a hierarchy, such as `block_element-element-one_element-two` 🚫.
 
-### Example
+### 👩🏻‍💻
 ```html
 <!-- `button` block -->
 <button class="button button_secondary">
@@ -131,7 +131,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
   - Or combine them with an element. Eg., `.button_primary.-disabled {…}`.
   - Don't nest modifier classes, or you can end up missing the target. Eg., `.search .-big {…}` 🚫.
 
-### Example
+### 👩🏻‍💻
 ```html
 <!-- `button` block with `-big` modifier -->
 <button class="button button_secondary -big">
@@ -165,7 +165,7 @@ It's totally fine (and expected) to have nested blocks. Since they're functional
 
 In other words, **you shall not set external geometry/positioning in the main block selector**.
 
-### Example
+### 👩🏻‍💻
 ```html
 <!-- `page` block -->
 <body class="page">
