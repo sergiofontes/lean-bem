@@ -1,8 +1,6 @@
 <img src="/images/logo.svg" width="450" height="auto" alt="Lean BEM, by Guava" />
-
-***
-
 *It’s BEM. But lean.*
+***
 
 # What's Lean BEM
 It's an alternate naming convention to the classic BEM method. And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
@@ -54,7 +52,7 @@ An **independent page component** that can be **reused**.
 - [Blocks can be nested](#blocks-inside-blocks) in each other.
 - You can have any number of nesting levels in the DOM tree.
 
-### Example:
+### Example
 ```html
 <!-- `button` block -->
 <button class="button">…</button>
@@ -78,7 +76,7 @@ An **independent page component** that can be **reused**.
 - An element is always part of a block, not another element.
   - This means that element names *can't* define a hierarchy, such as `block_element-element-one_element-two` 🚫.
 
-### Example:
+### Example
 ```html
 <!-- `button` block -->
 <button class="button button_secondary">
@@ -112,7 +110,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 - The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element. E.g., `-modifier`.
 - Composed-words separated by a single hyphen `-`. E.g., `-modifier-name`.
 
-### Example:
+### Example
 ```html
 <!-- `button` block with `-big` modifier -->
 <button class="button button_secondary -big">
@@ -144,7 +142,7 @@ It's totally fine (and expected) to have nested blocks. Since they're functional
 
 In other words, **you shall not set external geometry/positioning in the main block selector**.
 
-### Example:
+### Example
 ```html
 <!-- `page` block -->
 <body class="page">
