@@ -31,11 +31,11 @@ But there's more than meets the eye. Lean BEM methodology brings some old concep
 
 ### Other differences from canonical BEM
 - It's ok to rely a little bit on cascading.
-  - Lean BEM has global blocks[1] to share things like variables, color palette and typography with other components.
+  - Lean BEM has global blocks[1] that share things to the other components, like variables, color palette and typography.
   - CSS resets are still important. As said above, we shouldn't fear (so much) the cascading.
-- It's necessary to combine selectors when using [modifiers](#modifier)—it cannot be used without an element class.[2]
+- [Modifiers](#modifier) classes are combined with their block or element—it cannot be used alone.
 
-[1] Lean BEM divides blocks into three subcategories: [base](#base-blocks) (or global), regular, and [pages](#page-blocks). Base blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
+[1] Lean BEM divides blocks into three subcategories: [global](#global-blocks), regular, and [pages](#page-blocks). Global blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
 
 But let's take a step back and review what BEM is...
 
@@ -201,32 +201,32 @@ In other words, **you shall not set external geometry/positioning in the main bl
 }
 ```
 
-## Base blocks
-The *base blocks* are small foundational **UI building pieces** that are needed by the other blocks. Even though the overall idea is to make every block independent from each other, there *should* be some dependence on some elemental styles of a design system. For example, a typographic scale may define the most basic measurement unit of a system (`rem`); or a brand's color palette may be needed to tint elements; and so on.
+## Global blocks
+The *global blocks* are small foundational **UI building pieces** that are needed by the other blocks. Even though the overall idea is to make every block independent from each other, there *should* be some dependence on some elemental styles of a design system. For example, a typographic scale may define the most basic measurement unit of a system (`rem`); or a brand's color palette may be needed to tint elements; and so on.
 
-In practical terms, these *base blocks* will follow a regular block's naming and organization convention, except that is expected that you target HTML selectors before you use classes.
+In practical terms, these *global blocks* will follow a regular block's naming and organization convention, except that is expected that you target HTML selectors before you use classes.
 
-Some *base blocks* examples.
+Some *global blocks* examples.
 
-| *Base blocks* | *Base block selector*    | *Description*                                                       |
+| *Global blocks* | *Global block selector*    | *Description*                                                       |
 | ------------- | ------------------------ | ------------------------------------------------------------------- |
 | `colors`      | `.color`                 | Color palette                                                       |
 | `typography`  | `.typography` or `.typo` | Type scale, families, headers, paragraphs, links, lists, small, etc |
-| `global`      | `.global`                | Resets, global HTML tags, global classes                            |
+| `global`      | `.global`                | Resets, base HTML tags, global classes                            |
 
 ## Page blocks
 They encompass specific styles for pages and themes. It also can be useful to tie a group of *blocks* together, forming a cohesive layout. On smaller projects, this layer can be used to tie **styles together without worrying too much about modularity**. Just add a `page-` prefix before the page name.
 
-For example, a login page would have a `page-login` stylesheet that would set the styles and link together the `inputs`, `buttons`, and `imagery` blocks (alongside the [base blocks](#base-blocks), of course).
+For example, a login page would have a `page-login` stylesheet that would set the styles and link together the `inputs`, `buttons`, and `imagery` blocks (alongside the [global blocks](#global-blocks), of course).
 
 # File structure
-Below are two examples of a Lean BEM file structure. They're formed by three layers of folders, ordered by importance: `base`, `blocks` and `pages`. Also, inside this repository, you'll find a template for SCSS.
+Below are two examples of a Lean BEM file structure. They're formed by three layers of folders, ordered by importance: `global`, `blocks` and `pages`. Also, inside this repository, you'll find a template for SCSS.
 
 ### Default
-A default file structure. Set global CSS variables (“CSS Custom Properties”) in the [base blocks](#base-blocks) and re-use them throughout the other blocks.
+A default file structure. Set global CSS variables (“CSS Custom Properties”) in the [global blocks](#global-blocks) and re-use them throughout the other blocks.
 ```
     css/
-    ├── base/
+    ├── global/
     │   ├── colors.css
     │   ├── typography.css
     │   └── global.css
@@ -242,7 +242,7 @@ A default file structure. Set global CSS variables (“CSS Custom Properties”)
 A SCSS (or Less) file structure. Set variables, mixins and functions in the `mixins/` folder, and re-use them throughout the other blocks.
 ```
     scss/
-    ├── base/
+    ├── global/
     │   ├── utilities.scss
     │   ├── colors.scss
     │   ├── typography.scss
