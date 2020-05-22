@@ -104,6 +104,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 
 ## Modifier
 <img src="/images/modifiers.svg" width="339" height="auto" alt="A modifiers example" />
+
 - An entity that helps define the **appearance, state, or behavior of a block or element**.
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on — `big` or `dark`), its state (“How is it different from the others?” — `disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?” — such as `switch-theme`).
 - A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
