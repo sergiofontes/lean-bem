@@ -83,26 +83,25 @@ An **independent page component** that can be **reused**.
 
 *Example:*
 ```html
-<!-- `input` block -->
-<fieldset class="input">
-  <!-- `container` element in the `input` block -->
-  <div class="input_container">
-    <!-- `label` element in the `input` block -->
-    <label class="input_label">What's your name></label>
-    <!-- `text` element in the `input` block -->
-    <input class="input_text" type="text" placeholder="Ex.: Sérgio">
-  </div>
-</fieldset>
+<!-- `button` block -->
+<button class="button button_secondary">
+  <!-- `label` element of the `button` block -->
+  <span class="button_label">Download</span>
+  <!-- `icon` element of the `button` block -->
+  <span class="icon_download"></span>
+</button>
 ```
 ```css
-/* `input` block */
-.input {}
-/* `container` element in the `input` block */
-.input_container {}
-/* `label` element in the `input` block */
-.input_label {}
-/* `text` element in the `input` block */
-.input_text {}
+/* `button` block */
+.button {}
+/* `secondary` element of the `button` block */
+.button_secondary {}
+/* `label` element of the `button` block */
+.button_label {}
+```
+```css
+/* `search` element of the `icon` block */
+.icon_download {}
 ```
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
@@ -117,9 +116,11 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 *Example:*
 ```html
 <!-- `button` block with `-big` modifier -->
-<button class="button_primary -big">
-  <!-- Nested `icon` block with `-big` modifier -->
-  <span class="icon -big"></span>
+<button class="button button_secondary -big">
+  <!-- `label` element of the `button` block -->
+  <span class="button_label">Download</span>
+  <!-- `download` element of the `icon` block with `-big` modifier -->
+  <span class="icon_download -big"></span>
 </button>
 ```
 ```css
@@ -128,7 +129,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 ```
 ```css
 /* `icon` block with `-big` modifier */
-.icon.-big {}
+.icon_download.-big {}
 ```
 
 # CSS concepts
@@ -146,22 +147,28 @@ In other words, **you shall not set external geometry/positioning in the main bl
 
 *Example:*
 ```html
-<!-- `primary` element of `button` block -->
-<button class="button button_primary">
-  Search
-  <!-- `search` element of `icon` block -->
-  <span class="icon_search"></span>
-</button>
+<!-- `page` block -->
+<body class="page">
+  <!-- `container` element in the `page` block -->
+  <div class="page_container">
+    <!-- `header` block -->
+    <header class="header">…</header>
+    <!-- `footer` block -->
+    <footer class="footer">…</footer>
+  </div>
+</body>
 ```
 ```css
-/* `button_primary` sets positioning of the `icon` block */
-.button_primary .icon_search { float: right; }
+/* `page_container` sets positioning of the `header` block */
+.page_container .header { float: left; }
+/* `page_container` sets positioning of the `footer` block */
+.page_container .footer { float: right; }
 ```
 
 *Wrong example:* 🚫
 ```css
 /* Never set external geometry/positioning on the main block selector */
-.icon_search { float: left; }
+.header { float: left; }
 ```
 
 #### Properties to avoid on the main block selector
