@@ -1,4 +1,5 @@
 <img src="/images/logo.svg" width="450" height="auto" alt="Lean BEM, by Guava" />
+
 *It’s BEM. But lean.*
 
 ***
@@ -23,7 +24,7 @@ We'd have this:
 1. It's more readable—the classes' names are shorter, (less) ugly and without (much) repetition.
 2. It denotes modifier classes as composables, which can be added or removed without much prejudice to the block.
 
-But there's more than meets the eye. Lean BEM methodology brings some old concepts back to the spotlight.
+But there's more than meets the eye. Lean BEM methodology brings some old concepts back to the spotlight: cascade!
 
 ### Other differences from canonical BEM
 - It's ok to rely a little bit on cascading.
@@ -65,6 +66,7 @@ An **independent page component** that can be **reused**.
 
 ## Element
 <img src="/images/element.svg" width="500" height="auto" alt="A element example" />
+
 - A composite **part of a block that can't be used separately from it**.
 - The element name **describes its purpose** (“What is this?” — `item`, `text`, etc.), not its state (“What type, or what does it look like?” — `red`, `big`, etc.).
 - Composed-words separated by a single hyphen `-`. E.g., `element-name`.
