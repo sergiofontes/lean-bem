@@ -24,6 +24,7 @@ We'd have this:
 ```
 
 ### Lean BEM (and BEM as well) helps to...
+- Develop truly modular stylesheets;
 - Move layout fragments around within a project safely;
 - Create stable, predictable and clear code;
 - Reduce the project debugging time.
