@@ -7,8 +7,16 @@
 
 ***
 
+[BEM](https://en.bem.info/methodology/) (Block, Element, Modifier) is a component-based approach to web development. It's a methodology that helps you to name, understand & organize your stylesheets.
+
+The main idea is to slice the interface into **independent blocks**, which are formed by elements. Each block and element hold a unique naming scheme. This modular approach makes for faster development and easier maintenance because the issues of inheritance and over-specificity are avoided by design.
+
+But what means each of these BEM words? [Block](#block) stands for an independent component, if you prefer), no matter its complexitiy. [Element](#element) is a constituent of the block, and can't be used separately. And finally, [modifier](#modifier) conveys appearance, state or behavior of both block and element, and just like the latter, can't be used separately.
+
+<img src="/images/intro.svg" width="100%" height="auto" alt="A figure with a dissected block, showcasing all of its elements and modifiers" />
+
 # What's Lean BEM
-It's a methodology that helps you to name, understand & organize your stylesheets. It's a readability-driven, alternate naming convention to the [classic BEM](https://en.bem.info/methodology/). And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
+It's a readability-driven, alternate naming convention to the [classic BEM](https://en.bem.info/methodology/). And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
 
 So, in place of this:
 ```html
@@ -23,13 +31,13 @@ We'd have this:
 <button class="button button_primary -disabled -big">…</button>
 ```
 
-### Lean BEM (and BEM as well) helps to...
+Lean BEM (and BEM as well) helps to...
 - Develop truly modular stylesheets;
 - Move layout fragments around within a project safely;
 - Create stable, predictable and clear code;
 - Reduce the project debugging time.
 
-### By ensuring...
+By ensuring...
 - Reusable components;
 - Independent styles;
 - Tame of cascade and inheritance hell;
@@ -41,37 +49,26 @@ We'd have this:
 
 But there's more than meets the eye. Lean BEM methodology also brings an old concept back to the spotlight: cascade.
 
-### Other differences from canonical BEM
+### The cascade?
 - It's ok to rely a little bit on cascading.
-  - Lean BEM has global blocks[1] that share styles with the other components, like variables, color palette and typography.
   - CSS resets are still important. As said above, we shouldn't fear (so much) the cascading.
-- [Modifiers](#modifier) classes are combined with their block or element—it cannot be used alone.
-
-[1] Lean BEM divides blocks into three subcategories: [global](#global-blocks), regular, and [pages](#page-blocks). Global blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
-
-But let's take a step back and review what BEM is...
+  - All components must inherit base HTML tags, typography and colors definitions;
+- Lean BEM divides blocks into three subcategories: [global](#global-blocks), regular, and [pages](#page-blocks). Global blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
 
 # Key concepts
-<img src="/images/intro.svg" width="100%" height="auto" alt="A figure with a dissected block, showcasing all of its elements and modifiers" />
-
-[BEM](https://en.bem.info/methodology/) (Block, Element, Modifier) is a component-based approach to web development. The idea is to slice the interface into **independent blocks**, which are formed by elements and may have some modifiers. This modular approach makes for faster development and easier maintenance.
-
-But what means each of these BEM words? Block stands for an independent component, no matter its complexitiy. Element is a part of the block, and can't be used separately. Modifier conveys appearance, state or behavior.
-
 ## Block
-<img src="/images/block.svg" width="155" height="auto" alt="Example of a block" />
 
-An **independent page component** that can be **reused**.
+<p>
+<img src="/images/block.svg" width="155" height="auto" alt="Example of a block" align="right" />
+<h3>An independent page component that can be reused.</h3>
+</p>
+
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
   - It *doesn't* describe its state (“What does it look like?”—`red` or `big`). 🚫
 - Composed-words separated by a single hyphen `-`. Eg., `.block-name`.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
-
-### Nesting
 - [Blocks can be nested](#blocks-inside-blocks) in each other.
-- You can have any number of nesting levels in the DOM tree.
 
-### 👩🏻‍💻
 ```html
 <!-- `button` block -->
 <button class="button">…</button>
@@ -82,20 +79,19 @@ An **independent page component** that can be **reused**.
 ```
 
 ## Element
-<img src="/images/element.svg" width="500" height="auto" alt="Example of a element" />
 
-- A composite **part of a block that can't be used separately from it**.
+<p>
+<img src="/images/element.svg" width="466" height="auto" alt="Example of a element" align="right" />
+<h3>A composite part of a block that can't be used separately from it.</h3>
+</p>
+
 - The element name **describes its purpose** (“What is this?”—`item`, `text`, etc.), not its state (“What type, or what does it look like?”—`red`, `big`, etc.).
 - Composed-words separated by a single hyphen `-`. Eg., `element-name`.
 - The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
-
-### Nesting
-- Elements can be nested inside each other.
-- You can have any number of nesting levels.
+- Elements can be nested inside each other. You can have any number of nesting levels.
 - An element is always part of a block, not another element.
   - This means that element names *can't* define a hierarchy, such as `block_element-element-one_element-two`. 🚫
 
-### 👩🏻‍💻
 ```html
 <!-- `button` block -->
 <button class="button button_secondary">
@@ -120,11 +116,14 @@ An **independent page component** that can be **reused**.
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
 ## Modifier
-<img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" />
 
-- An entity that helps define the **appearance, state, or behavior of a block or a element**.
-- The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`big` or `dark`), its state (“How is it different from the others?”—`disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `switch-theme`).
-- A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
+<p>
+<img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" align="right" />
+<h3>An entity that helps define the appearance, state, or behavior of a block or a element.</h3>
+</p>
+
+- The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`-big` or `-dark`), its state (“How is it different from the others?”—`-disabled`, `-focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `-switch-theme`).
+- **A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it**.
 - Each modifier is a combined class (used alongside the block or element class).
 - The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element. Eg., `-modifier`.
 - Composed-words separated by a single hyphen `-`. Eg., `-modifier-name`.
@@ -132,7 +131,6 @@ In the example above, although the elements are nested in the DOM tree, they *mu
   - Or combine them with an element. Eg., `.button_primary.-disabled {…}`.
   - Don't nest modifier classes, or you can end up missing the target. Eg., `.search .-big {…}`. 🚫
 
-### 👩🏻‍💻
 ```html
 <!-- `button` block with `-big` modifier -->
 <button class="button button_secondary -big">
@@ -166,7 +164,6 @@ It's totally fine (and expected) to have nested blocks. Since they're functional
 
 In other words, **you shall not set external geometry/positioning in the main block selector**.
 
-### 👩🏻‍💻
 ```html
 <!-- `page` block -->
 <body class="page">
