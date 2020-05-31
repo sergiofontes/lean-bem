@@ -31,13 +31,13 @@ We'd have this:
 <button class="button button_primary -disabled -big">…</button>
 ```
 
-### Lean BEM (and BEM as well) helps to...
+Lean BEM (and BEM as well) helps to...
 - Develop truly modular stylesheets;
 - Move layout fragments around within a project safely;
 - Create stable, predictable and clear code;
 - Reduce the project debugging time.
 
-### By ensuring...
+By ensuring...
 - Reusable components;
 - Independent styles;
 - Tame of cascade and inheritance hell;
@@ -47,7 +47,7 @@ We'd have this:
 1. It's more readable—the classes' names are shorter, (less) ugly and without (much) repetition.
 2. It denotes modifier classes as composable, which can be added or removed without much prejudice to the block.
 
-But there's more than meets the eye. Lean BEM methodology also brings an old concept back to the spotlight: cascade.
+There's more than meets the ey, though. Lean BEM methodology also brings an old concept back to the spotlight: cascade.
 
 ### The cascade?
 - It's ok to rely a little bit on cascading.
@@ -55,9 +55,8 @@ But there's more than meets the eye. Lean BEM methodology also brings an old con
   - All components must inherit base HTML tags, typography and colors definitions;
 - Lean BEM divides blocks into three subcategories: [global](#global-blocks), regular, and [pages](#page-blocks). Global blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
 
-Let's take a step back and review what BEM is...
-
-# Block
+# Key concepts
+## Block
 
 <p>
 <img src="/images/block.svg" width="155" height="auto" alt="Example of a block" align="right" />
@@ -79,7 +78,7 @@ Let's take a step back and review what BEM is...
 .button {…}
 ```
 
-# Element
+## Element
 
 <p>
 <img src="/images/element.svg" width="466" height="auto" alt="Example of a element" align="right" />
@@ -116,7 +115,7 @@ Let's take a step back and review what BEM is...
 ```
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
-# Modifier
+## Modifier
 
 <p>
 <img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" align="right" />
