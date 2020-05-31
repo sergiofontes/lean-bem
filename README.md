@@ -47,7 +47,7 @@ By ensuring...
 1. It's more readable—the classes' names are shorter, (less) ugly and without (much) repetition.
 2. It denotes modifier classes as composable, which can be added or removed without much prejudice to the block.
 
-There's more than meets the ey, though. Lean BEM methodology also brings an old concept back to the spotlight: cascade.
+But there's more than meets the eye. Lean BEM methodology also brings an old concept back to the spotlight: cascade.
 
 ### The cascade?
 - It's ok to rely a little bit on cascading.
