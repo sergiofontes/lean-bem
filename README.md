@@ -49,27 +49,26 @@ We'd have this:
 
 But there's more than meets the eye. Lean BEM methodology also brings an old concept back to the spotlight: cascade.
 
-### Other differences from canonical BEM
+### The cascade?
 - It's ok to rely a little bit on cascading.
-  - Lean BEM has global blocks[1] that share styles with the other components, like variables, color palette and typography.
   - CSS resets are still important. As said above, we shouldn't fear (so much) the cascading.
-- [Modifiers](#modifier) classes are combined with their block or element—it cannot be used alone.
-
-[1] Lean BEM divides blocks into three subcategories: [global](#global-blocks), regular, and [pages](#page-blocks). Global blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
+- Lean BEM divides blocks into three subcategories: [global](#global-blocks), regular, and [pages](#page-blocks). Global blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
 
 But let's take a step back and review what BEM is...
 
 # Block
-<img src="/images/block.svg" width="155" height="auto" alt="Example of a block" />
 
+<div>
+<img src="/images/block.svg" width="155" height="auto" alt="Example of a block" align="right" />
 #### An independent page component that can be reused.
+</div>
+
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
   - It *doesn't* describe its state (“What does it look like?”—`red` or `big`). 🚫
 - Composed-words separated by a single hyphen `-`. Eg., `.block-name`.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
 - [Blocks can be nested](#blocks-inside-blocks) in each other.
 
-### 👩🏻‍💻
 ```html
 <!-- `button` block -->
 <button class="button">…</button>
@@ -80,9 +79,12 @@ But let's take a step back and review what BEM is...
 ```
 
 # Element
-<img src="/images/element.svg" width="500" height="auto" alt="Example of a element" />
 
+<div>
+<img src="/images/element.svg" width="500" height="auto" alt="Example of a element" align="right" />
 #### A composite part of a block that can't be used separately from it.
+</div>
+
 - The element name **describes its purpose** (“What is this?”—`item`, `text`, etc.), not its state (“What type, or what does it look like?”—`red`, `big`, etc.).
 - Composed-words separated by a single hyphen `-`. Eg., `element-name`.
 - The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
@@ -90,7 +92,6 @@ But let's take a step back and review what BEM is...
 - An element is always part of a block, not another element.
   - This means that element names *can't* define a hierarchy, such as `block_element-element-one_element-two`. 🚫
 
-### 👩🏻‍💻
 ```html
 <!-- `button` block -->
 <button class="button button_secondary">
@@ -115,9 +116,12 @@ But let's take a step back and review what BEM is...
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
 
 # Modifier
-<img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" />
 
+<div>
+<img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" align="right" />
 #### An entity that helps define the appearance, state, or behavior of a block or a element.
+</div>
+
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`-big` or `-dark`), its state (“How is it different from the others?”—`-disabled`, `-focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `-switch-theme`).
 - **A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it**.
 - Each modifier is a combined class (used alongside the block or element class).
@@ -127,7 +131,6 @@ In the example above, although the elements are nested in the DOM tree, they *mu
   - Or combine them with an element. Eg., `.button_primary.-disabled {…}`.
   - Don't nest modifier classes, or you can end up missing the target. Eg., `.search .-big {…}`. 🚫
 
-### 👩🏻‍💻
 ```html
 <!-- `button` block with `-big` modifier -->
 <button class="button button_secondary -big">
@@ -161,7 +164,6 @@ It's totally fine (and expected) to have nested blocks. Since they're functional
 
 In other words, **you shall not set external geometry/positioning in the main block selector**.
 
-### 👩🏻‍💻
 ```html
 <!-- `page` block -->
 <body class="page">
