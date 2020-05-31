@@ -59,8 +59,8 @@ But let's take a step back and review what BEM is...
 # Block
 
 <p>
-<h3>An independent page component that can be reused.</h3>
 <img src="/images/block.svg" width="155" height="auto" alt="Example of a block" align="right" />
+<h3>An independent page component that can be reused.</h3>
 </p>
 
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
@@ -81,8 +81,8 @@ But let's take a step back and review what BEM is...
 # Element
 
 <p>
-<h3>A composite part of a block that can't be used separately from it.</h3>
 <img src="/images/element.svg" width="500" height="auto" alt="Example of a element" align="right" />
+<h3>A composite part of a block that can't be used separately from it.</h3>
 </p>
 
 - The element name **describes its purpose** (“What is this?”—`item`, `text`, etc.), not its state (“What type, or what does it look like?”—`red`, `big`, etc.).
@@ -117,10 +117,10 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 
 # Modifier
 
-<h3>
-  An entity that helps define the appearance, state, or behavior of a block or a element.
-  <img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" align="right" />
-</h3>
+<p>
+<img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" align="right" />
+<h3>An entity that helps define the appearance, state, or behavior of a block or a element.</h3>
+</p>
 
 - The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`-big` or `-dark`), its state (“How is it different from the others?”—`-disabled`, `-focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `-switch-theme`).
 - **A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it**.
