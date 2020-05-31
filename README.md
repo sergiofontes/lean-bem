@@ -7,12 +7,11 @@
 
 ***
 
-# What is it
 [BEM](https://en.bem.info/methodology/) (Block, Element, Modifier) is a component-based approach to web development. It's a methodology that helps you to name, understand & organize your stylesheets.
 
 The main idea is to slice the interface into **independent blocks**, which are formed by elements. Each block and element hold a unique naming scheme. This modular approach makes for faster development and easier maintenance because the issues of inheritance and over-specificity are avoided by design.
 
-But what means each of these BEM words? Block stands for an independent block (or a component, if you prefer), no matter its complexitiy. Element is a constituent of the block, and can't be used separately. Modifier conveys appearance, state or behavior of both block and element, and just like the latter, can't be used separately.
+But what means each of these BEM words? [Block](#block) stands for an independent component, if you prefer), no matter its complexitiy. [Element](#element) is a constituent of the block, and can't be used separately. And finally, [modifier](#modifier) conveys appearance, state or behavior of both block and element, and just like the latter, can't be used separately.
 
 <img src="/images/intro.svg" width="100%" height="auto" alt="A figure with a dissected block, showcasing all of its elements and modifiers" />
 
@@ -63,7 +62,7 @@ But let's take a step back and review what BEM is...
 # Block
 <img src="/images/block.svg" width="155" height="auto" alt="Example of a block" />
 
-An **independent page component** that can be **reused**.
+#### An independent page component that can be reused.
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
   - It *doesn't* describe its state (“What does it look like?”—`red` or `big`). 🚫
 - Composed-words separated by a single hyphen `-`. Eg., `.block-name`.
@@ -83,7 +82,7 @@ An **independent page component** that can be **reused**.
 # Element
 <img src="/images/element.svg" width="500" height="auto" alt="Example of a element" />
 
-- A composite **part of a block that can't be used separately from it**.
+#### A composite part of a block that can't be used separately from it.
 - The element name **describes its purpose** (“What is this?”—`item`, `text`, etc.), not its state (“What type, or what does it look like?”—`red`, `big`, etc.).
 - Composed-words separated by a single hyphen `-`. Eg., `element-name`.
 - The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
@@ -118,9 +117,9 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 # Modifier
 <img src="/images/modifiers.svg" width="339" height="auto" alt="Example of a modifiers" />
 
-- An entity that helps define the **appearance, state, or behavior of a block or a element**.
-- The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`big` or `dark`), its state (“How is it different from the others?”—`disabled`, `focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `switch-theme`).
-- A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it.
+#### An entity that helps define the appearance, state, or behavior of a block or a element.
+- The modifier name describes its appearance (“What size?” or “Which theme?” and so on—`-big` or `-dark`), its state (“How is it different from the others?”—`-disabled`, `-focused`, etc.) and its behavior (“How does it behave?” or “How does it respond to the user?”—such as `-switch-theme`).
+- **A modifier can't be used alone. It should change the appearance, behavior, or state of the entity, not replace it**.
 - Each modifier is a combined class (used alongside the block or element class).
 - The modifier name is preceded by a hyphen `-`, an exceptional *character that visually differentiates* the modifier from the block or element. Eg., `-modifier`.
 - Composed-words separated by a single hyphen `-`. Eg., `-modifier-name`.
