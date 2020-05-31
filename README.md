@@ -52,9 +52,10 @@ But there's more than meets the eye. Lean BEM methodology also brings an old con
 ### The cascade?
 - It's ok to rely a little bit on cascading.
   - CSS resets are still important. As said above, we shouldn't fear (so much) the cascading.
+  - All components must inherit base HTML tags, typography and colors definitions;
 - Lean BEM divides blocks into three subcategories: [global](#global-blocks), regular, and [pages](#page-blocks). Global blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
 
-But let's take a step back and review what BEM is...
+Let's take a step back and review what BEM is...
 
 # Block
 
@@ -81,7 +82,7 @@ But let's take a step back and review what BEM is...
 # Element
 
 <p>
-<img src="/images/element.svg" width="500" height="auto" alt="Example of a element" align="right" />
+<img src="/images/element.svg" width="466" height="auto" alt="Example of a element" align="right" />
 <h3>A composite part of a block that can't be used separately from it.</h3>
 </p>
 
