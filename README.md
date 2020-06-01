@@ -110,7 +110,7 @@ But there's more than meets the eye. Lean BEM methodology also brings an old con
 .button_label {…}
 ```
 ```css
-/* `search` element of the `icon` block */
+/* `download` element of the `icon` block */
 .icon_download {…}
 ```
 In the example above, although the elements are nested in the DOM tree, they *must not* be nested in the stylesheets. Keeping the CSS specificity low is great for maintenance, and makes overwriting a simple task.
@@ -129,7 +129,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 - Composed-words separated by a single hyphen `-`. Eg., `-modifier-name`.
 - When possible, combine a modifier class with its parent one. Eg., `.button.-big {…}`.
   - Or combine them with an element. Eg., `.button_primary.-disabled {…}`.
-  - Don't nest modifier classes, or you can end up missing the target. Eg., `.search .-big {…}`. 🚫
+  - Don't nest modifier classes, or you can end up missing the target. Eg., `.button .-big {…}`. 🚫
 
 ```html
 <!-- `button` block with `-big` modifier -->
@@ -237,7 +237,7 @@ Below are two examples of a Lean BEM file structure. They're formed by three lay
 A default file structure. Set global CSS variables (“CSS Custom Properties”) in the [global blocks](#global-blocks) and re-use them throughout the other blocks.
 ```
     css/
-    ├── global/
+    ├── globals/
     │   ├── colors.css
     │   ├── typography.css
     │   └── global.css
@@ -250,10 +250,10 @@ A default file structure. Set global CSS variables (“CSS Custom Properties”)
 ```
 
 ### SCSS/Less
-A SCSS (or Less) file structure. Set variables, mixins and functions in the `mixins/` folder, and re-use them throughout the other blocks.
+A SCSS (or Less) file structure. Set variables, mixins and functions in the `utilities/` folder, and call out `globals/scaffold` on every block.
 ```
     scss/
-    ├── global/
+    ├── globals/
     │   ├── utilities.scss
     │   ├── colors.scss
     │   ├── typography.scss
