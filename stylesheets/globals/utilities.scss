@@ -3,6 +3,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // Px to rem.
+$base: 16px !default;
 @function rem($size) {
   $rem: $size / 15px;
   @return #{$rem}rem;
@@ -34,26 +35,53 @@
 // Hide typography, to be seen with screen readers only.
 @mixin fontless {
   position: absolute;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  overflow: hidden;
   line-height: 0;
+  border: 0;
+  clip-path: inset(0 0 0 0);
 }
 
 // Show hidden typography.
 @mixin fontful {
   position: static;
-  clip: none;
+  clip-path: none;
   white-space: normal;
 }
 
 // Remove default button appearance.
-@mixin buttonless {
+@mixin buttonless(
+  $background: transparent,
+  $border:     0,
+  $radius:     0,
+  $shadow:     none
+) {
   appearance: none;
   cursor: pointer;
-  background-color: transparent;
-  border: 0;
-  box-shadow: none;
+  background-color: $background;
+  border: $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+// Fancy underline. All native.
+@mixin underline(
+  $color:     black,
+  $thickness: 2px,
+  $skip:      true,
+  $position:  under,
+) {
+  text-decoration: underline;
+  text-decoration-color: $color;
+  text-decoration-thickness: $thickness;
+  text-decoration-width: $thickness;
+  text-decoration-skip-ink: if($skip, auto, none);
+  text-decoration-skip: if($skip, skip, none);
+  text-underline-position: $position;
+}
+
+// Dashed line as background
+@mixin dashed-line($color: black, $direction: 0deg) {
+  background-image: linear-gradient($direction, transparent 25%, $color 25%, $color 50%, transparent 50%, transparent 75%, $color 75%, $color 100%);
 }

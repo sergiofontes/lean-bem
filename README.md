@@ -11,12 +11,12 @@
 
 The main idea is to slice the interface into **independent blocks**, which are formed by elements. Each block and element hold a unique naming scheme. This modular approach makes for faster development and easier maintenance because the issues of inheritance and over-specificity are avoided by design.
 
-But what means each of these BEM words? [Block](#block) stands for an independent component, if you prefer), no matter its complexitiy. [Element](#element) is a constituent of the block, and can't be used separately. And finally, [modifier](#modifier) conveys appearance, state or behavior of both block and element, and just like the latter, can't be used separately.
+And what means each of these BEM words? [Block](#block) stands for an independent component (or module), no matter its complexitiy. [Element](#element) is a constituent of the block, and can't be used separately. And finally, [modifier](#modifier) conveys appearance, state or behavior of both block and element, and just like the latter, can't be used separately.
 
 <img src="/images/intro.svg" width="100%" height="auto" alt="A figure with a dissected block, showcasing all of its elements and modifiers" />
 
 # What's Lean BEM
-It's a readability-driven, alternate naming convention to the [classic BEM](https://en.bem.info/methodology/). And it's simple: composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
+It's a readability-driven, alternate naming convention to the [classic BEM](https://en.bem.info/methodology/). Composed-words are separated by a single hyphen `-`; [blocks](#block) are separated from [elements](#element) by a single underline `_`; and [modifiers](#modifier) are standalone classes that only work within the parent block. That’s it.
 
 So, in place of this:
 ```html
@@ -44,16 +44,8 @@ By ensuring...
 - Use of an understandable naming scheme.
 
 ### Why lean?
-1. It's more readable—the classes' names are shorter, (less) ugly and without (much) repetition.
+1. It's more readable—the classes' names are shorter, less uglier and without (much) repetition.
 2. It denotes modifier classes as composable, which can be added or removed without much prejudice to the block.
-
-But there's more than meets the eye. Lean BEM methodology also brings an old concept back to the spotlight: cascade.
-
-### The cascade?
-- It's ok to rely a little bit on cascading.
-  - CSS resets are still important. As said above, we shouldn't fear (so much) the cascading.
-  - All components must inherit base HTML tags, typography and colors definitions;
-- Lean BEM divides blocks into three subcategories: [global](#global-blocks), regular, and [pages](#page-blocks). Global blocks are global styles that cascade throughout other blocks; regular blocks are UI components; and pages blocks are clusters of regular blocks within a place or theme.
 
 # Key concepts
 ## Block
@@ -67,7 +59,7 @@ But there's more than meets the eye. Lean BEM methodology also brings an old con
   - It *doesn't* describe its state (“What does it look like?”—`red` or `big`). 🚫
 - Composed-words separated by a single hyphen `-`. Eg., `.block-name`.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
-- [Blocks can be nested](#blocks-inside-blocks) in each other.
+- [Blocks can be nested](#blocks-inside-blocks) inside each other.
 
 ```html
 <!-- `button` block -->
@@ -90,7 +82,7 @@ But there's more than meets the eye. Lean BEM methodology also brings an old con
 - The structure of an element's full name is `block_element`. The element name is separated from the block name with a *single* underscore (`_`).
 - Elements can be nested inside each other. You can have any number of nesting levels.
 - An element is always part of a block, not another element.
-  - This means that element names *can't* define a hierarchy, such as `block_element-element-one_element-two`. 🚫
+  - This means that element names *can't* define a hierarchy, such as `block_element-one_element-two`. 🚫
 
 ```html
 <!-- `button` block -->
@@ -153,14 +145,14 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 ## General recommendations
 - Target classes instead of an HTML tag. Don't target an ID or an attribute.
 - Rely in a code formatting standard to make them consistent.
-  - Lean BEM suggests @mdo's [Code Guide](http://codeguide.co/#css-syntax).
+  - Lean BEM suggests [@mdo's Code Guide](http://codeguide.co/#css-syntax).
 - Avoid too much use of compound words. Instead of `super-long-block-name`, use `block-name`. Preferably, `block`.
 - Avoid much class nesting in CSS.
   - Try to stick with two levels of depth. Eg., `.button .icon_download {…}`.
 - Prefer composition of classes instead of inheritance. This keeps the code uncoupled and flexible.
 
 ## Blocks inside blocks
-It's totally fine (and expected) to have nested blocks. Since they're functionally independent, they could be freely moved around to compose UI patterns. To accomplish this, styles that are responsible for the external geometry and positioning are set via the parent block.
+It's totally fine (and expected) to have nested blocks. Since blocks are functionally independent, they could be freely moved around to compose UI patterns. To accomplish this, styles that are responsible for the external geometry and positioning are set via the parent block.
 
 In other words, **you shall not set external geometry/positioning in the main block selector**.
 
@@ -210,60 +202,6 @@ In other words, **you shall not set external geometry/positioning in the main bl
   align-self: any;
   box-sizing: content-box | padding-box | inherit;
 }
-```
-
-## Global blocks
-The *global blocks* are small foundational **UI building pieces** that are needed by the other blocks. Even though the overall idea is to make every block independent from each other, there *should* be some dependence on some elemental styles of a design system. For example, a typographic scale may define the most basic measurement unit of a system (`rem`); or a brand's color palette may be needed to tint elements; and so on.
-
-In practical terms, these *global blocks* will follow a regular block's naming and organization convention, except that is expected that you target HTML selectors before you use classes.
-
-Some *global blocks* examples.
-
-| *Global blocks* | *Global block selector*    | *Description*                                                       |
-| ------------- | ------------------------ | ------------------------------------------------------------------- |
-| `colors`      | `.color`                 | Color palette                                                       |
-| `typography`  | `.typography` or `.typo` | Type scale, families, headers, paragraphs, links, lists, small, etc |
-| `global`      | `.global`                | Resets, base HTML tags, global classes                            |
-
-## Page blocks
-They encompass specific styles for pages and themes. It also can be useful to tie a group of *blocks* together, forming a cohesive layout. On smaller projects, this layer can be used to tie **styles together without worrying too much about modularity**. Just add a `page-` prefix before the page name.
-
-For example, a login page would have a `page-login` stylesheet that would set the styles and link together the `inputs`, `buttons`, and `imagery` blocks (alongside the [global blocks](#global-blocks), of course).
-
-# File structure
-Below are two examples of a Lean BEM file structure. They're formed by three layers of folders, ordered by importance: `global`, `blocks` and `pages`. Also, inside this repository, you'll find a template for SCSS.
-
-### Default
-A default file structure. Set global CSS variables (“CSS Custom Properties”) in the [global blocks](#global-blocks) and re-use them throughout the other blocks.
-```
-    css/
-    ├── globals/
-    │   ├── colors.css
-    │   ├── typography.css
-    │   └── global.css
-    ├── blocks/
-    │   ├── block-name.css
-    │   └── …
-    └── pages/
-        ├── page-name.css
-        └── …
-```
-
-### SCSS/Less
-A SCSS (or Less) file structure. Set variables, mixins and functions in the `utilities/` folder, and call out `globals/scaffold` on every block.
-```
-    scss/
-    ├── globals/
-    │   ├── utilities.scss
-    │   ├── colors.scss
-    │   ├── typography.scss
-    │   └── global.scss
-    ├── blocks/
-    │   ├── block-name.scss
-    │   └── …
-    └── pages/
-        ├── page-name.scss
-        └── …
 ```
 
 # Further reading
