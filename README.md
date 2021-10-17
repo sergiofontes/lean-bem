@@ -11,7 +11,7 @@
 
 The main idea is to slice the interface into **independent blocks**, which are formed by elements. Each block and element hold a unique naming scheme. This modular approach makes for faster development and easier maintenance because the issues of inheritance and over-specificity are avoided by design.
 
-And what means each of these BEM words? [Block](#block) stands for an independent component (or module), no matter its complexitiy. [Element](#element) is a constituent of the block, and can't be used separately. And finally, [modifier](#modifier) conveys appearance, state or behavior of both block and element, and just like the latter, can't be used separately.
+And what each of these BEM words mean? [Block](#block) stands for an independent component (or module), no matter its complexity. [Element](#element) is a constituent of the block, and can't be used separately. Lastly, [modifier](#modifier) conveys appearance, state or behavior of both block and element, and just like the latter, can't be used independently.
 
 <img src="/images/intro.svg" width="100%" height="auto" alt="A figure with a dissected block, showcasing all of its elements and modifiers" />
 
@@ -52,7 +52,7 @@ By ensuring...
 
 <p>
 <img src="/images/block.svg" width="155" height="auto" alt="Example of a block" align="right" />
-<h3>An independent page component that can be reused.</h3>
+<h3>An independent component that can be reused.</h3>
 </p>
 
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
