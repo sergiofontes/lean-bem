@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/images/logo.svg" width="450" height="auto" alt="Lean BEM, by Guava" align="center" />
+  <img src="/images/logo.svg" width="450" height="auto" alt="Lean BEM, by Sérgio Fontes" align="center" />
 </p>
 <p align="center">
   <em>It’s BEM. But lean.</em>
@@ -57,7 +57,7 @@ By ensuring...
 
 - The block name **describes its purpose** (“What is it?”—`button` or `icon`)
   - It *doesn't* describe its state (“What does it look like?”—`red` or `big`). 🚫
-- Composed-words separated by a single hyphen `-`. Eg., `.block-name`.
+- Composed-words separated by a single hyphen `-`. Eg., `.block`.
 - The block **shouldn't influence its environment**, meaning you shouldn't set the external geometry or positioning on it.
 - [Blocks can be nested](#blocks-inside-blocks) inside each other.
 
@@ -146,7 +146,7 @@ In the example above, although the elements are nested in the DOM tree, they *mu
 - Target classes instead of an HTML tag. Don't target an ID or an attribute.
 - Rely in a code formatting standard to make them consistent.
   - Lean BEM suggests [@mdo's Code Guide](http://codeguide.co/#css-syntax).
-- Avoid too much use of compound words. Instead of `super-long-block-name`, use `block-name`. Preferably, `block`.
+- Avoid too much use of compound words. Instead of `super-long-block`, use `long-block`. Preferably, `block`.
 - Avoid much class nesting in CSS.
   - Try to stick with two levels of depth. Eg., `.button .icon_download {…}`.
 - Prefer composition of classes instead of inheritance. This keeps the code uncoupled and flexible.
